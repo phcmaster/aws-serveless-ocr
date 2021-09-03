@@ -12,4 +12,25 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+url: String = "";
+
+  onSelectFile(event){
+
+    if(event.target.files){
+      
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      
+      reader.onload = (event:any)=>{
+        this.url = event.target.result;
+      }
+
+    }
+
+  }
+
+
+
+
+
 }

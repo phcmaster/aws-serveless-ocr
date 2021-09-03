@@ -1,8 +1,23 @@
-<p>
-    <mat-toolbar>
-      <span>OCR Web Application</span>
-    </mat-toolbar>
-  </p>
+<mat-toolbar>
+  <h2>OCR Web Application</h2>
+</mat-toolbar>
 
-  <h3>Choose you file bellow:</h3>
-  <input type="file" accept="image/*" capture="environment">
+  <h1>Extract your document data easily</h1>
+
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>Choose your document file bellow and upload it.</mat-card-title>
+      <mat-card-subtitle>After that we will extract the informations for you.</mat-card-subtitle>
+    </mat-card-header>
+    <div mat-card-image></div>
+    <mat-card-content>
+      <img class="image-preview" [src]="url">
+    </mat-card-content>
+    <mat-card-actions>
+      <input type="file" accept="image/*" capture="environment" (change)="onSelectFile($event)" #inputFile/>
+      <button (click)="inputFile.click()" mat-button>CHOOSE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+
