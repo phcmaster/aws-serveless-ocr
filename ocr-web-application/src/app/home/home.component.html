@@ -2,22 +2,28 @@
   <h2>OCR Web Application</h2>
 </mat-toolbar>
 
-  <h1>Extract your document data easily</h1>
+<h1>Extract your document data easily</h1>
 
-  <mat-card class="card">
-    <mat-card-header>
-      <div mat-card-avatar></div>
-      <mat-card-title>Choose your document file bellow and upload it.</mat-card-title>
-      <mat-card-subtitle>After that we will extract the informations for you.</mat-card-subtitle>
-    </mat-card-header>
-    <div mat-card-image></div>
-    <mat-card-content>
-      <img class="image-preview" [src]="url">
-    </mat-card-content>
-    <mat-card-actions>
-      <input type="file" accept="image/*" capture="environment" (change)="onSelectFile($event)" #inputFile/>
-      <button (click)="inputFile.click()" mat-button>CHOOSE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-
+<mat-card class="card">
+  <mat-card-header class="card-title">
+    <mat-card-title>Choose your document file bellow and upload it.</mat-card-title>
+    <mat-card-subtitle>After that we will extract the informations for you.</mat-card-subtitle>
+  </mat-card-header>
+  <div mat-card-image></div>
+  <mat-card-content>
+    <img class="image-preview" [src]="url">
+  </mat-card-content>
+  <div [hidden]="showSpinner">
+    <mat-progress-spinner
+    class="spinner"
+     color="Primary"
+     mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+  <mat-card-actions>
+    <input type="file" accept="image/*" capture="environment" (change)="onSelectFile($event)" #inputFile />
+    <button (click)="inputFile.click()" mat-button>CHOOSE</button>
+    <button  (click)="loadSpinner()" mat-button>SHARE</button>
+  </mat-card-actions>
+  
+</mat-card>
